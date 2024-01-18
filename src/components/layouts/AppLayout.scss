@@ -1,0 +1,24 @@
+:root {
+  --top-nav-height: 40px;
+  --left-sidebar-width: 200px;
+}
+
+#app-layout-root {
+  height: 100vh;
+  display: grid;
+  //grid-template-areas: "a a" "b c";
+  grid-template-columns: var(--left-sidebar-width) 1fr;
+  grid-template-rows: var(--top-nav-height) 1fr;
+
+  // animate transition grid for columns
+  transition: grid-template-columns 0.5s ease-in-out;
+
+  & > header {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  & > aside {
+    grid-column: 1/2;
+    grid-row: 1/3;
+  }
+}

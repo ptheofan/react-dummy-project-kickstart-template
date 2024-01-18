@@ -1,0 +1,8 @@
+.sidemenu-logo {
+  display: flex;
+  height: var(--top-nav-height);
+  border-bottom: 1px solid black;
+  align-items: center;
+  // Enable justify-content to center the logo horizontally
+  //justify-content: center;
+}
