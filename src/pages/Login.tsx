@@ -9,8 +9,8 @@ import {
   FormMessage
 } from '@/components/ui/form.tsx';
 import { Input } from '@/components/ui/input.tsx';
-import loginImage001Light from '@/assets/login-img001-light.png';
-import loginImage001Dark from '@/assets/login-img001-dark.png';
+import loginImage001Light from '@/assets/login-img002-light.png';
+import loginImage001Dark from '@/assets/login-img002-dark.png';
 
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
