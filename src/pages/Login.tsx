@@ -17,6 +17,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button.tsx';
 import { Switch } from '@/components/ui/switch.tsx';
 import DarkImage from '@/components/ui/DarkImage.tsx';
+import Logo from '@/components/icons/Logo';
 
 const formSchema = z.object({
   username: z.string().min(2).max(50),
@@ -44,8 +45,8 @@ export default function Login() {
     <div
       className={ `flex flex-col flex-wrap content-center justify-center h-screen bg-gradient-to-tr from-sky-300 via-sky-200 to-blue-100 dark:from-[#021018] dark:via-[#051e2d] dark:to-[#0a142e]` }>
       <div
-        className={ `inline-flex flex-row justify-center items-center xl:border-2 border-black/90 flex-wrap h-3/4 overflow-clip rounded-xl max-w-fit` }>
-        <div className={ `h-full hidden lg:flex max-w-[75%] basis-7/12` }>
+        className={ `inline-flex flex-row flex-nowrap justify-center items-center border-0 md:border-2 border-black/90 md:h-3/4 h-full overflow-clip rounded-none md:rounded-xl md:m-8 md:max-w-fit w-full` }>
+        <div className={ `h-full hidden md:flex lg:max-w-[75%] md:max-w-[50%] basis-7/12` }>
           <DarkImage
             lightSrc={ loginImage001Light }
             darkSrc={ loginImage001Dark }
@@ -53,7 +54,10 @@ export default function Login() {
             className={ `w-full h-full` }
           />
         </div>
-        <div className={ `pl-12 pr-12 h-full bg-background flex flex-col justify-center grow` }>
+        <div className={ `pl-12 pr-12 h-full bg-background flex flex-col justify-start md:justify-center grow overflow-auto` }>
+          <div className={ `flex justify-center mt-24 mb-24 md:mt-8 md:mb-12` }>
+            <Logo />
+          </div>
           <Form { ...form }>
             <form onSubmit={ form.handleSubmit(onSubmit) } className="space-y-8">
               <FormField

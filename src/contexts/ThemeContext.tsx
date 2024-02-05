@@ -34,6 +34,11 @@ export function ThemeProvider({
     const root = window.document.documentElement;
     const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
+    const setRootThemeClass = (newThemeClass: string) => {
+      root.classList.remove('dark', 'light');
+      root.classList.add(newThemeClass);
+    }
+
     const activateTheme = (e: MediaQueryListEvent) => {
       let newTheme: Theme = e.matches ? 'dark' : 'light';
       if (theme === 'system') {
@@ -43,11 +48,22 @@ export function ThemeProvider({
           : 'light';
       }
 
-      root.classList.remove('dark', 'light');
-      root.classList.add(newTheme);
+      setRootThemeClass(newTheme);
     };
 
     colorSchemeQuery.addEventListener('change', activateTheme);
+
+    // Default Value
+    const storedThemeValue = localStorage.getItem(storageKey);
+    if (storedThemeValue === 'dark') {
+      setRootThemeClass('dark');
+    } else if (storedThemeValue === 'light') {
+      setRootThemeClass('light');
+    } else {
+      setRootThemeClass(
+        window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      );
+    }
 
     return () => {
       colorSchemeQuery.removeEventListener('change', activateTheme);
